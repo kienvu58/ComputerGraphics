@@ -14,7 +14,10 @@ public:
     void UseProgram() const;
 
     void SetUniform(const char * name, const glm::mat4 & mat);
+    void SetUniform(const char * name, GLuint val);
     void SetUniform(const char * name, int val);
+    void SetUniform(const char * name, float val);
+
 private:
 
     std::string ReadFile(const GLchar * filename);

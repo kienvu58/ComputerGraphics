@@ -2,6 +2,7 @@
 #include "config.h"
 #include "Shader.h"
 #include "Camera.h"
+#include "Model.h"
 #define N_KEYS 1024
 
 class App
@@ -24,7 +25,7 @@ private:
     bool m_keys[N_KEYS];
     Camera m_camera;
     Shader m_shader;
-    GLuint m_vao;
-    GLuint m_texture;
+
+    std::vector<Model> m_models;
 };
 

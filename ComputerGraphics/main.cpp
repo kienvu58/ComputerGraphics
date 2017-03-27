@@ -1,6 +1,8 @@
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
 #include <iostream>
+#include <thread>
+#include <chrono>
 
 #include "App.h"
 
@@ -21,6 +23,7 @@ int main()
     }
 
     // create window
+    //GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, TITLE, glfwGetPrimaryMonitor(), nullptr);
     GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, TITLE, nullptr, nullptr);
     glfwMakeContextCurrent(window);
 
@@ -47,17 +50,23 @@ int main()
     // main loop
     while (!glfwWindowShouldClose(window))
     {
-        static float s_last = 0.0;
-        float current = (float)glfwGetTime();
-        float deltaTime = current - s_last;
+        static double s_last = 0.0;
+        double current = glfwGetTime();
+        double deltaTime = current - s_last;
         s_last = current;
 
         glfwPollEvents();
-        app.Update(deltaTime);
+        app.Update((float)deltaTime);
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         app.Render();
         glfwSwapBuffers(window);
+
+        if (LIMIT_FPS)
+        {
+            long sleepTime = (long)(1.0 / FPS - deltaTime * 1000.0);
+            std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
+        }
     }
 
     app.CleanUp();

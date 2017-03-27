@@ -31,6 +31,12 @@
     <ClCompile Include="App.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -45,12 +51,24 @@
     <ClInclude Include="config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="simple.vert">
       <Filter>Shader Files</Filter>
     </None>
     <None Include="simple.frag">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="model.vert">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="model.frag">
       <Filter>Shader Files</Filter>
     </None>
   </ItemGroup>

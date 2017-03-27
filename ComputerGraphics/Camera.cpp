@@ -3,7 +3,7 @@
 
 Camera::Camera() :
     m_front(glm::vec3(0.0f, 0.0f, -1.0f)),
-    m_position(glm::vec3(0.0f, 0.0f, 0.0f)),
+    m_position(glm::vec3(0.0f, 0.0f, 10.0f)),
     m_worldUp(glm::vec3(0.0f, 1.0f, 0.0f)),
     m_yaw(-90.0f),
     m_pitch(0.0f),

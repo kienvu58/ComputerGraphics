@@ -59,12 +59,30 @@ void Shader::SetUniform(const char * name, const glm::mat4 & mat)
     }
 }
 
+void Shader::SetUniform(const char * name, GLuint val)
+{
+    GLuint location = glGetUniformLocation(m_program, name);
+    if (location != -1)
+    {
+        glUniform1ui(location, val);
+    }
+}
+
 void Shader::SetUniform(const char * name, int val)
 {
     GLuint location = glGetUniformLocation(m_program, name);
     if (location != -1)
     {
         glUniform1i(location, val);
+    }
+}
+
+void Shader::SetUniform(const char * name, float val)
+{
+    GLuint location = glGetUniformLocation(m_program, name);
+    if (location != -1)
+    {
+        glUniform1f(location, val);
     }
 }
 
