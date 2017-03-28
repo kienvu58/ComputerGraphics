@@ -23,8 +23,15 @@ int main()
     }
 
     // create window
-    //GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, TITLE, glfwGetPrimaryMonitor(), nullptr);
-    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, TITLE, nullptr, nullptr);
+    GLFWwindow *window;
+    if (FULLSCREEN)
+    {
+        window = glfwCreateWindow(WIDTH, HEIGHT, TITLE, glfwGetPrimaryMonitor(), nullptr);
+    }
+    else
+    {
+        window = glfwCreateWindow(WIDTH, HEIGHT, TITLE, nullptr, nullptr);
+    }
     glfwMakeContextCurrent(window);
 
     // set callback functions

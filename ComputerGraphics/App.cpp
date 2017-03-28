@@ -101,4 +101,12 @@ void App::DoCameraMovement(float deltaTime)
     {
         m_camera.Move(CameraMovement::RIGHT, deltaTime);
     }
+    if (m_keys[GLFW_KEY_E])
+    {
+        m_camera.Move(CameraMovement::UP, deltaTime);
+    }
+    if (m_keys[GLFW_KEY_Q])
+    {
+        m_camera.Move(CameraMovement::DOWN, deltaTime);
+    }
 }
