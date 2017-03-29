@@ -21,6 +21,9 @@ void App::Init()
 
     Model nanosuit("Resources/Nanosuit/nanosuit.obj");
     m_models.push_back(nanosuit);
+
+    Model cowboy("Resources/Cowboy/cowboy.dae");
+    m_models.push_back(cowboy);
 }
 
 void App::Update(float deltaTime)
@@ -40,13 +43,18 @@ void App::Render()
     m_shader.SetUniform("projection", projection);
 
 
-    glm::mat4 world;
-    world = glm::translate(world, glm::vec3(0.0f, -5.0f, 0.0f));
-    float scale = 0.2f;
-    world = glm::scale(world, glm::vec3(scale, scale, scale));
-    m_shader.SetUniform("model", world);
+    float x = 0.0f;
+    for (GLuint i = 0; i < m_models.size(); i++)
+    {
+        glm::mat4 world;
+        world = glm::translate(world, glm::vec3(x, -5.0f, 0.0f));
+        x += 3.0f;
+        float scale = 0.2f;
+        world = glm::scale(world, glm::vec3(scale, scale, scale));
+        m_shader.SetUniform("model", world);
 
-    m_models[0].Render(m_shader);
+        m_models[i].Render(m_shader);
+    }
 
 }
 

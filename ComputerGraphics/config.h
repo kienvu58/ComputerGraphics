@@ -1,7 +1,7 @@
 #define TITLE "Computer Graphics"
 
-#define FULLSCREEN true
-#ifdef FULLSCREEN
+#define FULLSCREEN false
+#if FULLSCREEN
 #define WIDTH 1366
 #define HEIGHT 768
 #else
